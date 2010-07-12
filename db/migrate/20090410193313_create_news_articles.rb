@@ -67,7 +67,7 @@ class CreateNewsArticles < ActiveRecord::Migration
   def self.down
     ContentType.delete_all(['name = ?', 'NewsArticle'])
     CategoryType.all(:conditions => ['name = ?', 'News Article']).each(&:destroy)
-    drop_table :news_release_versions
-    drop_table :news_releases
+    drop_table :news_article_versions
+    drop_table :news_articles
   end
 end
